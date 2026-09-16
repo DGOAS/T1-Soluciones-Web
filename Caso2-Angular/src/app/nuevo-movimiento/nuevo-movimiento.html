@@ -1,0 +1,42 @@
+<div class="nuevo-movimiento">
+
+  <h2>Nuevo movimiento</h2>
+
+  <div class="formulario">
+
+    <div>
+      <label for="tipo">Tipo de movimiento:</label>
+
+      <select id="tipo" [(ngModel)]="tipo">
+        <option value="Recarga">Recarga</option>
+        <option value="Gasto">Gasto</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="monto">Monto:</label>
+
+      <input
+        id="monto"
+        type="number"
+        [(ngModel)]="monto"
+        min="0"
+        placeholder="Ingrese el monto">
+    </div>
+
+    @if (gastoInvalido) {
+      <p class="error">
+        El monto del gasto no puede superar el saldo disponible.
+      </p>
+    }
+
+    <button
+      type="button"
+      (click)="registrarMovimiento()"
+      [disabled]="gastoInvalido">
+      Registrar movimiento
+    </button>
+
+  </div>
+
+</div>
