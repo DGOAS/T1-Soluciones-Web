@@ -1,37 +1,42 @@
-<div class="nuevo-movimiento">
+<div class="card shadow-sm">
 
-  <h2>Nuevo movimiento</h2>
+  <div class="card-body">
 
-  <div class="formulario">
+    <h2 class="card-title text-center mb-4">Nuevo movimiento</h2>
 
-    <div>
-      <label for="tipo">Tipo de movimiento:</label>
+    <div class="mb-3">
+      <label for="tipo" class="form-label">Tipo de movimiento:</label>
 
-      <select id="tipo" [(ngModel)]="tipo">
+      <select
+        id="tipo"
+        class="form-select"
+        [(ngModel)]="tipo">
         <option value="Recarga">Recarga</option>
         <option value="Gasto">Gasto</option>
       </select>
     </div>
 
-    <div>
-      <label for="monto">Monto:</label>
+    <div class="mb-3">
+      <label for="monto" class="form-label">Monto (S/):</label>
 
       <input
         id="monto"
         type="number"
+        class="form-control"
         [(ngModel)]="monto"
         min="0"
         placeholder="Ingrese el monto">
     </div>
 
     @if (gastoInvalido) {
-      <p class="error">
+      <div class="alert alert-danger" role="alert">
         El monto del gasto no puede superar el saldo disponible.
-      </p>
+      </div>
     }
 
     <button
       type="button"
+      class="btn btn-primary w-100"
       (click)="registrarMovimiento()"
       [disabled]="gastoInvalido">
       Registrar movimiento

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NuevoMovimiento } from './nuevo-movimiento/nuevo-movimiento';
+import { Billetera } from './billetera/billetera';
 
 @Component({
   selector: 'app-root',
-  imports: [NuevoMovimiento],
+  imports: [Billetera],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
